@@ -22,7 +22,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://footballclub-of-sholin-soccer.onrender.com/'
+    'https://footballclub-of-sholin-soccer.onrender.com'
 ]
 
 STORAGES = {
