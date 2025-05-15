@@ -11,6 +11,14 @@ class CounrtyViewsets(viewsets.ViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
 
+    def create(self,request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
     def list(self,request):
         queryset = Country.objects.all()
         serializer = self.serializer_class(queryset,many=True)
@@ -22,6 +30,14 @@ class CharacteristicViewsets(viewsets.ViewSet):
     queryset = Characteristic.objects.all()
     serializer_class = CharacteristicSerializer
 
+    def create(self,request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
+
     def list(self,request):
         queryset = Characteristic.objects.all()
         serializer = self.serializer_class(queryset,many=True)
@@ -32,6 +48,14 @@ class LeagueViewsets(viewsets.ViewSet):
     permission_classes = [permissions.AllowAny]
     queryset = League.objects.all()
     serializer_class = LeagueSerializer
+
+    def create(self,request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=400)
 
     def list(self,request):
         queryset = League.objects.all()
